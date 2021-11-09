@@ -1,20 +1,20 @@
 {
-  "name": "cerebros",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DBueno1464/cerebros.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DBueno1464/cerebros/issues"
-  },
-  "homepage": "https://github.com/DBueno1464/cerebros#readme"
+    "name": "cerebros",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DBueno1464/cerebros.git"
+    },
+    "keywords": [],
+    "author": "Stephen Wong, Derrick Buneo, Muhaimen Ahmed, Allie Soliz, Roberto Monplaisir",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/DBueno1464/cerebros/issues"
+    },
+    "homepage": "https://github.com/DBueno1464/cerebros#readme"
 }
