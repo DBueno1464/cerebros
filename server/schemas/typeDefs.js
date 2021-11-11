@@ -2,3 +2,24 @@
 const { gql } = require('apollo-server-express');
 
 // make typedefs
+const typeDefs = gql`
+    type User {
+        _id: ID!
+        username: String
+        email: String
+        gamesPlayed: Int 
+
+    }
+    # write a type for games
+
+    # type for authorization
+    type Auth {
+        token: ID!
+        user: User 
+    }
+
+    type Mutation {
+        login(email: String!, password: String!): Auth
+        addUser(username: String!, email: String!, password: String!): Auth
+    }
+`
