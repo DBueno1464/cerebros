@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/schools-db',
+  process.env.MONGODB_URI || 'mongodb://localhost/cere-db',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
