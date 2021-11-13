@@ -1,6 +1,6 @@
 // require models
 const { AuthenticationError } = require("apollo-server-errors");
-const { User, Book } = require("../models");
+const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -12,8 +12,14 @@ const resolvers = {
   
       me: async (parent, args, context) => {
         if (context.user) {
-          return User.findOne({ _id: context.user._id });
+          
+        const userData = await User.findOne({ _id: context.user._id })
+        // .select('-__v -password')
+        // .populate('books')
+        
+        return userData;
         }
+        console.log("context.user is undefinded");
         throw new AuthenticationError("You need to be logged in!");
       },
       
