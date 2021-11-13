@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context';
 
-import Navbar from './components/nav/NavBar';
+import Navbar from './components/Navbar';
 
 const httpLink = new createHttpLink({
   uri: "/graphql",
@@ -31,6 +31,11 @@ function App() {
       <Router>
         <>
           <Navbar />
+          {/* <Switch>
+            <Route exact path="/" component={SearchBooks} />
+            <Route exact path="/saved" component={SavedBooks} />
+            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
+          </Switch> */}
         </>
       </Router>
     </ApolloProvider>
