@@ -1,17 +1,9 @@
 import React from 'react';
-<<<<<<< Updated upstream
-// import { Nav } from './styles';
-
-const NavBar = () => {
-    return (
-        // <Nav>
-=======
-import { Nav } from './Styles';
+import { Nav } from './styles';
 
 const NavBar = () => {
     return (
         <Nav>
->>>>>>> Stashed changes
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-5">
@@ -23,7 +15,7 @@ const NavBar = () => {
                     </div>
                 </div>    
             </div>
-        // </Nav>
+        </Nav>
     )
 };
 
