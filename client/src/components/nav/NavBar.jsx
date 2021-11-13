@@ -1,9 +1,9 @@
 import React from 'react';
-import { Nav } from './styles';
+// import { Nav } from './styles';
 
 const NavBar = () => {
-    retrun (
-        <Nav>
+    return (
+        // <Nav>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-5">
@@ -15,8 +15,8 @@ const NavBar = () => {
                     </div>
                 </div>
             </div>
-        </Nav>
+        // </Nav>
     )
 };
 
-export default Navbar;
+export default NavBar;
