@@ -1,90 +1,97 @@
-import React, { useState, useEffect } from 'react';
-import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import {
+	Jumbotron,
+	Container,
+	Col,
+	Form,
+	Button,
+	Card,
+	CardColumns,
+} from "react-bootstrap";
 
-import { useMutation } from '@apollo/client';
+import { useMutation } from "@apollo/client";
 // import mutations for content later
 
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 // import { saveBook, searchGoogleBooks } from '../utils/API';
-import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
+import { saveBookIds, getSavedBookIds } from "../utils/localStorage";
 
 const SearchContent = () => {
-  // create state for holding returned google api data
-  const [searchedBooks, setSearchedBooks] = useState([]);
-  // create state for holding our search field data
-  const [searchInput, setSearchInput] = useState('');
+	// create state for holding returned google api data
+	const [searchedBooks, setSearchedBooks] = useState([]);
+	// create state for holding our search field data
+	const [searchInput, setSearchInput] = useState("");
 
-  // create state to hold saved bookId values
-  const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
+	// create state to hold saved bookId values
+	const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
 
-  // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
-  // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
-  useEffect(() => {
-    return () => saveBookIds(savedBookIds);
-  });
+	// set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
+	// learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
+	useEffect(() => {
+		return () => saveBookIds(savedBookIds);
+	});
 
-  // create method to search for books and set state on form submit
-//   const handleFormSubmit = async (event) => {
-//     event.preventDefault();
+	// create method to search for books and set state on form submit
+	//   const handleFormSubmit = async (event) => {
+	//     event.preventDefault();
 
-//     if (!searchInput) {
-//       return false;
-//     }
+	//     if (!searchInput) {
+	//       return false;
+	//     }
 
-//     try {
-//       const response = await searchGoogleBooks(searchInput);
+	//     try {
+	//       const response = await searchGoogleBooks(searchInput);
 
-//       if (!response.ok) {
-//         throw new Error('something went wrong!');
-//       }
+	//       if (!response.ok) {
+	//         throw new Error('something went wrong!');
+	//       }
 
-//       const { items } = await response.json();
+	//       const { items } = await response.json();
 
-//       const bookData = items.map((book) => ({
-//         bookId: book.id,
-//         authors: book.volumeInfo.authors || ['No author to display'],
-//         title: book.volumeInfo.title,
-//         description: book.volumeInfo.description,
-//         image: book.volumeInfo.imageLinks?.thumbnail || '',
-//       }));
+	//       const bookData = items.map((book) => ({
+	//         bookId: book.id,
+	//         authors: book.volumeInfo.authors || ['No author to display'],
+	//         title: book.volumeInfo.title,
+	//         description: book.volumeInfo.description,
+	//         image: book.volumeInfo.imageLinks?.thumbnail || '',
+	//       }));
 
-//       setSearchedBooks(bookData);
-//       setSearchInput('');
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   };
+	//       setSearchedBooks(bookData);
+	//       setSearchInput('');
+	//     } catch (err) {
+	//       console.error(err);
+	//     }
+	//   };
 
-  // useMutation requirement
-//   const [saveBook] = useMutation(SAVE_BOOK);
-  
+	// useMutation requirement
+	//   const [saveBook] = useMutation(SAVE_BOOK);
 
-//   const handleSaveBook = async (bookId) => {
-//     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
+	//   const handleSaveBook = async (bookId) => {
+	//     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
 
-//     const token = Auth.loggedIn() ? Auth.getToken() : null;
+	//     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-//     if (!token) {
-//       return false;
-//     }
+	//     if (!token) {
+	//       return false;
+	//     }
 
-//     try {
-//       const { data } = await saveBook({
-//          variables: { input: bookToSave }
-//       });
+	//     try {
+	//       const { data } = await saveBook({
+	//          variables: { input: bookToSave }
+	//       });
 
-//       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   };
+	//       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
+	//     } catch (err) {
+	//       console.error(err);
+	//     }
+	//   };
 
-  return (
-    <>
-      <Jumbotron fluid className='text-light bg-dark'>
-        <Container>
-          <h1>Cerebro Game Search...</h1>
-          {/* <Form onSubmit={handleFormSubmit}>
+	return (
+		<>
+			<Jumbotron fluid className="text-light bg-dark">
+				<Container>
+					<h1>Cerebro Game Search...</h1>
+					{/* <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col xs={12} md={8}>
                 <Form.Control
@@ -103,23 +110,27 @@ const SearchContent = () => {
               </Col>
             </Form.Row>
           </Form> */}
-        </Container>
-      </Jumbotron>
+				</Container>
+			</Jumbotron>
 
-      <Container>
-        <h2>
-          {searchedBooks.length
-            ? `Viewing ${searchedBooks.length} results:`
-            : 'Search for a book to begin'}
-        </h2>
-        <CardColumns>
-          {searchedBooks.map((book) => {
-            return (
-              <Card key={book.bookId} border='dark'>
-                {book.image ? (
-                  <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' />
-                ) : null}
-                {/* <Card.Body>
+			<Container>
+				<h2>
+					{searchedBooks.length
+						? `Viewing ${searchedBooks.length} results:`
+						: "Search for a book to begin"}
+				</h2>
+				<CardColumns>
+					{searchedBooks.map((book) => {
+						return (
+							<Card key={book.bookId} border="dark">
+								{book.image ? (
+									<Card.Img
+										src={book.image}
+										alt={`The cover for ${book.title}`}
+										variant="top"
+									/>
+								) : null}
+								{/* <Card.Body>
                   <Card.Title>{book.title}</Card.Title>
                   <p className='small'>Authors: {book.authors}</p>
                   <Card.Text>{book.description}</Card.Text>
@@ -134,13 +145,13 @@ const SearchContent = () => {
                     </Button>
                   )}
                 </Card.Body> */}
-              </Card>
-            );
-          })}
-        </CardColumns>
-      </Container>
-    </>
-  );
+							</Card>
+						);
+					})}
+				</CardColumns>
+			</Container>
+		</>
+	);
 };
 
 export default SearchContent;

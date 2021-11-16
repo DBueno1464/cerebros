@@ -7,6 +7,17 @@ import Navbar from './components/Navbar';
 import SavedContent from './pages/SavedContent';
 import SearchContent from './pages/SearchContent';
 
+
+// ------------------------------------------
+// import OmdbContainer
+import OmdbContainer from './components/OmdbContainer';
+
+export default function Movie() {
+  return <OmdbContainer />;
+}
+// ------------------------------------------
+
+
 const httpLink = new createHttpLink({
   uri: "/graphql",
 });
