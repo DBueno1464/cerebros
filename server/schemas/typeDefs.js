@@ -7,8 +7,8 @@ const typeDefs = gql`
         _id: ID!
         username: String
         email: String
-        gamesPlayed: Int 
-
+        # gamesPlayed: Int 
+        # add a savedGames property when needed
     }
     # write a type for games
 
