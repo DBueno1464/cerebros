@@ -39,7 +39,7 @@ const SearchContent = () => {
       
       const response = await searchMovie(searchInput);
 
-      console.log(response);
+      // console.log(response);
 
       if (!response.ok) {
         throw new Error("something went wrong!");
@@ -89,7 +89,7 @@ const SearchContent = () => {
     <>
       <Jumbotron fluid className="text-light bg-dark">
         <Container>
-          <h1>Search for Books!</h1>
+          <h1>Search for Movies(Spiderman for example :E)!</h1>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col xs={12} md={8}>

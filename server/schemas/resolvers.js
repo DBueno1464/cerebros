@@ -47,10 +47,32 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
-    //   add save game mutation
-
-    //  add remove game mutation
+    },
+    saveMovie: async (parent, args, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { savedMovies: args.input } },
+          { new: true }
+        );
+        return updatedUser;
+      } else {
+        console.error("no user in context");
+      }
+    },
+    removeMovie: async (parent, args, context) => {
+      console.log(context.user);
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedMovies: { movieId: args.movieId } } },
+          { new: true }
+        );
+        return updatedUser;
+      } else {
+        console.error("Couldn't remove movie!");
+      }
+    },
   },
 };
 

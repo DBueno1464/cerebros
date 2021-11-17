@@ -7,7 +7,7 @@ const typeDefs = gql`
     _id: ID!
     username: String
     email: String
-    moviesWatched: Int
+    movieCount: Int
     savedMovies: [Movie]
   }
   # write a type for movies
@@ -27,7 +27,6 @@ const typeDefs = gql`
   }
 
   input savedMovie {
-    _id: ID!
     movieId: String
     image: String
     title: String
@@ -43,7 +42,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveMovie(input: savedMovie): User
-    removeBook(movieId: String!): User
+    removeMovie(movieId: String!): User
   }
 `;
 

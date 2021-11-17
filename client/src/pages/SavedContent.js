@@ -24,7 +24,7 @@ const SavedContent = () => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
-      console.log("token not found");
+      // console.log("token not found");
       return false;
     }
 
