@@ -1,6 +1,8 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
+const movieSchema = require('./Movie');
+
 const userSchema = new Schema(
   {
     username: {
@@ -20,7 +22,7 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    // TODO: set savedGames to be an array of data that adheres to the gameSchema
+    savedMovies: [movieSchema],
   },
   {
     toJSON: {
@@ -44,7 +46,9 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-// TODO: add hook to get game count
+userSchema.virtual('movieCount').get(function () {
+  return this.savedMovies.length;
+});
 
 const User = model("User", userSchema);
 

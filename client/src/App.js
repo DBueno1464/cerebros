@@ -7,6 +7,9 @@ import Navbar from './components/Navbar';
 import SavedContent from './pages/SavedContent';
 import SearchContent from './pages/SearchContent';
 
+import env from 'react-dotenv';
+
+
 const httpLink = new createHttpLink({
   uri: "/graphql",
 });
@@ -25,6 +28,8 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
+// console.log(`${process.env.REACT_APP_URL}${process.env.REACT_APP_APIKEY}`);
 
 function App() {
   return (

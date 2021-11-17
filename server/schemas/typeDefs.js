@@ -1,32 +1,50 @@
 // require apollo express
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 // make typedefs
 const typeDefs = gql`
-    type User {
-        _id: ID!
-        username: String
-        email: String
-        # gamesPlayed: Int 
-        # add a savedGames property when needed
-    }
-    # write a type for games
+  type User {
+    _id: ID!
+    username: String
+    email: String
+    moviesWatched: Int
+    savedMovies: [Movie]
+  }
+  # write a type for movies
 
-    # type for authorization
-    type Auth {
-        token: ID!
-        user: User 
-    }
+  type Movie {
+    _id: ID!
+    movieId: String
+    image: String
+    title: String
+    description: String
+  }
 
-    type Query {
-        users: [User]
-        me: User
-    }
+  # type for authorization
+  type Auth {
+    token: ID!
+    user: User
+  }
 
-    type Mutation {
-        login(email: String!, password: String!): Auth
-        addUser(username: String!, email: String!, password: String!): Auth
-    }
+  input savedMovie {
+    _id: ID!
+    movieId: String
+    image: String
+    title: String
+    description: String
+  }
+
+  type Query {
+    users: [User]
+    me: User
+  }
+
+  type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
+    saveMovie(input: savedMovie): User
+    removeBook(movieId: String!): User
+  }
 `;
 
 module.exports = typeDefs;
