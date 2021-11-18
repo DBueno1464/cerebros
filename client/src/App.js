@@ -6,6 +6,7 @@ import { setContext } from '@apollo/client/link/context';
 import Navbar from './components/Navbar';
 import SavedContent from './pages/SavedContent';
 import SearchContent from './pages/SearchContent';
+import Search from './components/Search';
 
 const httpLink = new createHttpLink({
   uri: "/graphql",
@@ -26,21 +27,27 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-function App() {
+const App = () => {
   return (
-    <ApolloProvider client={client}>
-      <Router>
-        <>
-          <Navbar />
-          <Switch>
-            <Route exact path="/" component={SearchContent} />
-            <Route exact path="/saved" component={SavedContent} />
-            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
-          </Switch>
-        </>
-      </Router>
-    </ApolloProvider>
+    <Search />
   );
 }
+
+// function App() {
+//   return (
+//     <ApolloProvider client={client}>
+//       <Router>
+//         <>
+//           <Navbar />
+//           <Switch>
+//             <Route exact path="/" component={SearchContent} />
+//             <Route exact path="/saved" component={SavedContent} />
+//             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
+//           </Switch>
+//         </>
+//       </Router>
+//     </ApolloProvider>
+//   );
+// }
 
 export default App;
