@@ -2,12 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context';
-// import  logo from './logo.svg';
+
 import Navbar from './components/Navbar';
+
+import LandingPage from './pages/LandingPage';
 import SavedContent from './pages/SavedContent';
 import SearchContent from './pages/SearchContent';
-
-import env from 'react-dotenv';
 
 
 const httpLink = new createHttpLink({
@@ -29,20 +29,22 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// console.log(`${process.env.REACT_APP_URL}${process.env.REACT_APP_APIKEY}`);
 
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
+        <div className="flex-column justify-flex-start min-100-vh">
           <Navbar />
+          <div className="container">
           <Switch>
-            <Route exact path="/" component={SearchContent} />
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/search" component={SearchContent} />
             <Route exact path="/saved" component={SavedContent} />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
-        </>
+          </div>
+        </div>
       </Router>
     </ApolloProvider>
   );
