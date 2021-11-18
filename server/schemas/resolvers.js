@@ -17,7 +17,7 @@ const resolvers = {
 
         return userData;
       }
-      console.log("context.user is undefinded");
+      // console.log("context.user is undefinded");
       throw new AuthenticationError("You need to be logged in!");
     },
   },

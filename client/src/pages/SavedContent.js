@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Jumbotron,
   Container,
@@ -7,7 +7,7 @@ import {
   Button,
 } from "react-bootstrap";
 
-import { useQuery, useMutation } from "@apollo/client";
+import { useLazyQuery, useQuery, useMutation } from "@apollo/client";
 import { GET_ME } from "../utils/queries";
 import { REMOVE_MOVIE } from "../utils/mutations";
 
@@ -15,11 +15,12 @@ import Auth from "../utils/auth";
 import { removeMovieId } from "../utils/localStorage";
 
 const SavedContent = () => {
-  const { loading, data } = useQuery(GET_ME);
-  const userData = data?.me || [];
+  const {loading, error, data} = useQuery(GET_ME);
+  
   const [removeMovie] = useMutation(REMOVE_MOVIE);
-
-  // console.log(userData);
+  
+  const userData = data?.me || [];
+  // console.log(data, loading);
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteMovie = async (movieId) => {
@@ -31,7 +32,7 @@ const SavedContent = () => {
     }
 
     try {
-      const { data } = await removeMovie({
+      await removeMovie({
         variables: { movieId },
       });
 
@@ -86,7 +87,10 @@ const SavedContent = () => {
                 <Card.Body>
                   <Card.Title>{movie.title}</Card.Title>
                   <Card.Text>{movie.description}</Card.Text>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeleteMovie(movie.movieId)}>
+                  <Button
+                    className="btn-block btn-danger"
+                    onClick={() => handleDeleteMovie(movie.movieId)}
+                  >
                     Delete this Movie!
                   </Button>
                 </Card.Body>
