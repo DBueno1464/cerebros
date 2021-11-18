@@ -34,15 +34,17 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
+        <div className="flex-column justify-flex-start min-100-vh">
           <Navbar />
+          <div className="container">
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/search" component={SearchContent} />
             <Route exact path="/saved" component={SavedContent} />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
-        </>
+          </div>
+        </div>
       </Router>
     </ApolloProvider>
   );
