@@ -19,6 +19,8 @@ const SavedContent = () => {
   const userData = data?.me || [];
   const [removeMovie] = useMutation(REMOVE_MOVIE);
 
+  // console.log(userData);
+
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteMovie = async (movieId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -64,14 +66,14 @@ const SavedContent = () => {
       </Jumbotron>
       <Container>
         <h2>
-          {userData.savedMovie.length
-            ? `Viewing ${userData.savedMovie.length} saved ${
-                userData.savedMovie.length === 1 ? "movie" : "movies"
+          {userData.savedMovies.length
+            ? `Viewing ${userData.savedMovies.length} saved ${
+                userData.savedMovies.length === 1 ? "movie" : "movies"
               }:`
             : "You have no saved content!"}
         </h2>
         <CardColumns>
-          {userData.savedMovie.map((movie) => {
+          {userData.savedMovies.map((movie) => {
             return (
               <Card key={movie.movieId} border="dark">
                 {movie.image ? (
