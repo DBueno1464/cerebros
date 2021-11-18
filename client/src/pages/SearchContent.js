@@ -89,8 +89,12 @@ const SearchContent = () => {
     <>
       <Jumbotron fluid className="text-light bg-dark">
         <Container>
+
           <h1>Search for Movies(Spiderman for example :E)!</h1>
           <Form onSubmit={handleFormSubmit}>
+
+         
+
             <Form.Row>
               <Col xs={12} md={8}>
                 <Form.Control
