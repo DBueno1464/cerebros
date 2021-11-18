@@ -9,7 +9,7 @@ const typeDefs = gql`
     email: String
     movieCount: Int
     savedMovies: [Movie]
-    thoughts: [Thought]
+    thoughts: [Thought]!
   }
 
   type Movie {
@@ -25,7 +25,7 @@ const typeDefs = gql`
     thoughtText: String
     thoughtAuthor: String
     createdAt: String
-    comments: [Comment]
+    comments: [Comment]!
   }
 
   type Comment {

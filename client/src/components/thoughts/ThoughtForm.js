@@ -15,7 +15,9 @@ const ThoughtForm = () => {
   const [addThought, { error }] = useMutation(ADD_THOUGHT, {
     update(cache, { data: { addThought } }) {
       try {
+        // console.log(cache.readQuery({ query: QUERY_THOUGHTS }))
         const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+        // console.log(thoughts);
 
         cache.writeQuery({
           query: QUERY_THOUGHTS,
@@ -25,13 +27,17 @@ const ThoughtForm = () => {
         console.error(e);
       }
 
+      try {
+        const { me } = cache.readQuery({ query: GET_ME });
+        cache.writeQuery({
+          query: GET_ME,
+          data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+        });
+      } catch (e) {
+        console.error(e);
+      }
       // update me object's cache
-      const { me } = cache.readQuery({ query: GET_ME });
-      console.log(me);
-      cache.writeQuery({
-        query: GET_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
-      });
+      // console.log(cache.readQuery({ query: GET_ME }));
     },
   });
 
