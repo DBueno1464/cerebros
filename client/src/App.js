@@ -8,6 +8,9 @@ import SavedContent from './pages/SavedContent';
 import SearchContent from './pages/SearchContent';
 import Search from './components/Search';
 
+import env from 'react-dotenv';
+
+
 const httpLink = new createHttpLink({
   uri: "/graphql",
 });
@@ -27,7 +30,9 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const App = () => {
+// console.log(`${process.env.REACT_APP_URL}${process.env.REACT_APP_APIKEY}`);
+
+function App() {
   return (
     <Search />
   );
