@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-
   Jumbotron,
   Container,
   Col,
@@ -113,7 +112,6 @@ const SearchContent = () => {
                 </Button>
               </Col>
             </Form.Row>
-
           </Form>
         </Container>
       </Jumbotron>
@@ -139,7 +137,6 @@ const SearchContent = () => {
                 <Card.Body>
                   <Card.Title>{movie.title}</Card.Title>
                   <Card.Text>{movie.description}</Card.Text>
-
                   {Auth.loggedIn() && (
                     <Button
                       disabled={savedMovieIds?.some(
@@ -155,7 +152,6 @@ const SearchContent = () => {
                         : "Save this Movie!"}
                     </Button>
                   )}
-
                 </Card.Body>
               </Card>
             );
@@ -164,7 +160,6 @@ const SearchContent = () => {
       </Container>
     </>
   );
-
 };
 
 export default SearchContent;
