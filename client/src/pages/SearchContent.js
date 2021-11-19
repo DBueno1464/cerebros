@@ -39,7 +39,7 @@ const SearchContent = () => {
       
       const response = await searchMovie(searchInput);
 
-      console.log(response);
+      // console.log(response);
 
       if (!response.ok) {
         throw new Error("something went wrong!");
