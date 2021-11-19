@@ -6,8 +6,10 @@ import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddToFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
+import Navbar from './components/Navbar';
 
 const App = () => {
+	const [navbar, setNavbar] = useState ([])
 	const [movies, setMovies] = useState([]);
 	const [searchValue, setSearchValue] = useState('');
 	const [favourites, setFavourites] = useState([]);
