@@ -1,3 +1,5 @@
+// created removefavourites .js - wong
+
 import React from 'react';
 
 const RemoveFavourites = () => {

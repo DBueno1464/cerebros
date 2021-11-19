@@ -1,3 +1,5 @@
+// created add movielist .js - wong
+
 import React from 'react';
 
 const MovieList = (props) => {

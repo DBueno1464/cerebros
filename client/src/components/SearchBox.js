@@ -1,3 +1,5 @@
+// created searchbox .js - wong
+
 import React from 'react';
 
 const SearchBox = (props) => {
