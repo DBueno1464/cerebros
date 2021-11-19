@@ -1,9 +1,12 @@
-import axios from "axios";
+import env from "react-dotenv";
 
-const BASEURL = process.env.REACT_APP_BASEURL;
-const APIKEY = process.env.REACT_APP_APIKEY;
+const apiKey = process.env.REACT_APP_APIKEY;
+const url = process.env.REACT_APP_URL;
 
-const search = async (query) =>
-	axios.get(`${BASEURL}${query}${APIKEY}&rating=pg`);
-
-export default { search };
+export const searchMovie = (query) => {
+  return fetch(
+  url +
+  apiKey +
+  query
+  );
+};

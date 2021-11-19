@@ -1,13 +1,6 @@
 const express = require("express");
 const path = require("path");
 // require our token authentication
-const { authMiddleware } = require("./utils/auth");
-// Import the ApolloServer class
-const { ApolloServer } = require("apollo-server-express");
-const db = require("./config/connection");
-
-// Import the two parts of a GraphQL schema
-const { typeDefs, resolvers } = require("./schemas");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
