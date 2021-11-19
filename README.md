@@ -10,7 +10,7 @@
 
 ## Description
 
-The [Cerebros Movie Search App]() allows users to search for movies.
+The [Cerebros](https://fast-earth-08103.herokuapp.com/) movie search app allows users to search for movies.
 
 ## Installation
 
