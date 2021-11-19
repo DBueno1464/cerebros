@@ -30,10 +30,10 @@ npm run develop
 
 ## Usage
 
-Select 'Login/Sign Up' from the navbar.
+1. Select [Sign Up/Login] from the navbar.
 
-To 'Sign Up' enter a username, email address and password. Click 'Submit'.
+   - To Sign Up as afirst time user, select [Sign Up] and enter a username, email address and password. Click 'Submit'.
+   - To Login, select [Login] and enter your email and password.Click 'Submit'.
 
-To 'Login' enter your email and password. Click 'Submit'.
-
-Select 'Search For Games/Movies' from the navbar. In the 'Search for a movie' search box, type any move you would like to search for. Press 'Submit Search' button. Results will then be displayed.
+2. Select [Search for Movies] from the navbar.
+   - In the 'Search for a movie' search box, type any move you would like to search for. Press 'Submit Search' button. Results will then be displayed.
