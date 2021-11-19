@@ -4,13 +4,13 @@ import './App.css';
 import MovieList from './components/MovieList';
 import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
-import AddFavourites from './components/AddFavourites';
+import AddFavourites from './components/AddToFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
-	const [favourites, setFavourites] = useState([]);
 	const [searchValue, setSearchValue] = useState('');
+	const [favourites, setFavourites] = useState([]);
 
 	const getMovieRequest = async (searchValue) => {
 		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
@@ -23,26 +23,9 @@ const App = () => {
 		}
 	};
 
-	useEffect(() => {
-		getMovieRequest(searchValue);
-	}, [searchValue]);
-
-	useEffect(() => {
-		const movieFavourites = JSON.parse(
-			localStorage.getItem('react-movie-app-favourites')
-		);
-
-		setFavourites(movieFavourites);
-	}, []);
-
-	const saveToLocalStorage = (items) => {
-		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
-	};
-
 	const addFavouriteMovie = (movie) => {
 		const newFavouriteList = [...favourites, movie];
 		setFavourites(newFavouriteList);
-		saveToLocalStorage(newFavouriteList);
 	};
 
 	const removeFavouriteMovie = (movie) => {
@@ -51,8 +34,11 @@ const App = () => {
 		);
 
 		setFavourites(newFavouriteList);
-		saveToLocalStorage(newFavouriteList);
 	};
+
+	useEffect(() => {
+		getMovieRequest(searchValue);
+	}, [searchValue]);
 
 	return (
 		<div className='container-fluid movie-app'>
@@ -63,8 +49,8 @@ const App = () => {
 			<div className='row'>
 				<MovieList
 					movies={movies}
-					handleFavouritesClick={addFavouriteMovie}
 					favouriteComponent={AddFavourites}
+					handleFavouritesClick={addFavouriteMovie}
 				/>
 			</div>
 			<div className='row d-flex align-items-center mt-4 mb-4'>
