@@ -149,7 +149,7 @@ const SearchContent = () => {
                         (savedMovieId) => savedMovieId === movie.movieId
                       )
                         ? "This movie has already been saved!"
-                        : "Save this Book!"}
+                        : "Save this Movie!"}
                     </Button>
                   )}
                 </Card.Body>
