@@ -6,16 +6,12 @@
 
 <a href="https://choosealicense.com/licenses/mit" target="_blank"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a>
 
-
 ## Table of Contents
-
 
 - [Description](#description)
 - [Demonstration](#demonstration)
 - [Installation](#installation)
 - [Usage](#usage)
-
-
 
 ## Description
 
@@ -23,7 +19,11 @@ The [Cerebros](https://fast-earth-08103.herokuapp.com/) movie search app allows 
 
 ## Demonstration
 
+
 <img src="./client/assets/images/savedmovies.png" alt="Website Screenshot" width="100%">
+
+<img src="./client/assets/images/searchsect.png" alt="Website Screenshot" width="100%">
+
 
 ## Installation
 
