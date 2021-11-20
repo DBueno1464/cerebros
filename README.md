@@ -22,8 +22,13 @@ The [Cerebros](https://fast-earth-08103.herokuapp.com/) movie search app allows 
 
 <img src="./client/assets/images/savedmovies.png" alt="Website Screenshot" width="100%">
 
-<img src="./client/assets/images/searchsect.png" alt="Website Screenshot" width="100%">
 
+
+
+<img src="./client/assets/images/savedmovies.png" alt="Website Screenshot" width="100%">
+
+
+<img src="./client/assets/images/thoughts.png" alt="Website Screenshot" width="100%">
 
 ## Installation
 
