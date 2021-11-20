@@ -148,8 +148,8 @@ const SearchContent = () => {
                       {savedMovieIds?.some(
                         (savedMovieId) => savedMovieId === movie.movieId
                       )
-                        ? "This movie has already been saved!"
-                        : "Save this Movie!"}
+                        ? "This movie has already been favorited!"
+                        : "Favorite this Movie?"}
                     </Button>
                   )}
                 </Card.Body>

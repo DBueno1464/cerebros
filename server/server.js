@@ -1,15 +1,12 @@
 const express = require('express');
 const path = require("path");
 // require our token authentication
-// Import the ApolloServer class
 const { ApolloServer } = require('apollo-server-express');
 
-// Import the two parts of a GraphQL schema
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
 
 const db = require('./config/connection');
-
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -27,10 +24,14 @@ server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
 // render our main html page
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 db.once('open', () => {
   app.listen(PORT, () => {
